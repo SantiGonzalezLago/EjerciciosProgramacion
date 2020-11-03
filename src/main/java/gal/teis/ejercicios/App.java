@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class App {
 	public static void main(String[] args) {
-		exceptions();
+		//exceptions();
+		NumeroEntreUnoYDiez.prueba();
 	}
 
 	public static void exceptions() {
