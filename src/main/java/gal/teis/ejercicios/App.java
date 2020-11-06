@@ -4,12 +4,28 @@ import java.util.Scanner;
 
 public class App {
 	public static void main(String[] args) {
-		//exceptions();
-		//NumeroEntreUnoYDiez.prueba();
-		//igualdades();
-		ifElse();
+		// exceptions();
+		// NumeroEntreUnoYDiez.prueba();
+		// igualdades();
+		// ifElse();
+		stringMethods();
 	}
-	
+
+	public static void stringMethods() {
+		String cadena = "No por mucho madrugar amanece más temprano";
+		System.out.println(cadena.charAt(0)); // N
+		System.out.println(cadena.charAt(9)); // c
+		System.out.println(cadena.endsWith("o")); // true
+		System.out.println(cadena.startsWith("n")); // false
+		System.out.println(cadena.equals("No por mucho madrugar amanece más temprano")); // true
+		System.out.println(cadena.indexOf("mucho")); // 7
+		System.out.println(cadena.length()); // 42
+		System.out.println(cadena.replace('o', 'i')); // Ni pir muchi madrugar amanece más temprani
+		System.out.println(cadena.toLowerCase()); // no por mucho madrugar amanece más temprano
+		System.out.println(cadena.toUpperCase()); // NO POR MUCHO MADRUGAR AMANECE MÁS TEMPRANO
+		System.out.println(cadena.replace('a', 'i').replace('e', 'i').replace('o', 'i').replace('u', 'i')); // Ni pir michi midrigir iminici más timprini
+	}
+
 	public static void ifElse() {
 		int numero1 = 1;
 		int numero2 = 2;
@@ -22,7 +38,7 @@ public class App {
 			System.out.println("Número 3");
 		}
 	}
-	
+
 	public static void igualdades() {
 		int a1 = 2;
 		int a2 = 2;
