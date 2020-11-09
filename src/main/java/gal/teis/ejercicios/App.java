@@ -7,8 +7,23 @@ public class App {
 		// exceptions();
 		// NumeroEntreUnoYDiez.prueba();
 		// igualdades();
-		// ifElse();
-		stringMethods();
+		// stringMethods();
+		// invertirStringBuilder("hola");
+		invertirString("hola");
+	}
+	
+	public static void invertirStringBuilder(String palabra) {
+		StringBuilder sb = new StringBuilder(palabra);
+		sb.reverse();
+		System.out.println(sb.toString());
+	}
+	
+	public static void invertirString(String palabra) {
+		String palabraInvertida = "";
+		for (int i = palabra.length() - 1; i >= 0; i--) {
+			palabraInvertida += palabra.charAt(i);
+		}
+		System.out.println(palabraInvertida);
 	}
 
 	public static void stringMethods() {
@@ -24,19 +39,6 @@ public class App {
 		System.out.println(cadena.toLowerCase()); // no por mucho madrugar amanece más temprano
 		System.out.println(cadena.toUpperCase()); // NO POR MUCHO MADRUGAR AMANECE MÁS TEMPRANO
 		System.out.println(cadena.replace('a', 'i').replace('e', 'i').replace('o', 'i').replace('u', 'i')); // Ni pir michi midrigir iminici más timprini
-	}
-
-	public static void ifElse() {
-		int numero1 = 1;
-		int numero2 = 2;
-		int numero3 = 3;
-		if (numero1 == 1) {
-			System.out.println("Número 1");
-		} else if (numero2 == 2) {
-			System.out.println("Número 2");
-		} else if (numero3 == 3) {
-			System.out.println("Número 3");
-		}
 	}
 
 	public static void igualdades() {
