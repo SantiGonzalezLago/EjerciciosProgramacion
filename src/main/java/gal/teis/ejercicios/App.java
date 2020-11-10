@@ -9,15 +9,25 @@ public class App {
 		// igualdades();
 		// stringMethods();
 		// invertirStringBuilder("hola");
-		invertirString("hola");
+		// invertirString("hola");
+		convertirHoras(1000);
 	}
-	
+
+	public static void convertirHoras (int horas) {
+		int semanas, dias, restoHoras;
+		dias = horas/24;
+		restoHoras = horas%24;
+		semanas = dias/7;
+		dias %= 7;
+		System.out.println(horas +" horas corresponden a " + semanas + " semanas, " + dias + " días y " + restoHoras + " horas.");
+	}
+
 	public static void invertirStringBuilder(String palabra) {
 		StringBuilder sb = new StringBuilder(palabra);
 		sb.reverse();
 		System.out.println(sb.toString());
 	}
-	
+
 	public static void invertirString(String palabra) {
 		String palabraInvertida = "";
 		for (int i = palabra.length() - 1; i >= 0; i--) {
@@ -38,7 +48,8 @@ public class App {
 		System.out.println(cadena.replace('o', 'i')); // Ni pir muchi madrugar amanece más temprani
 		System.out.println(cadena.toLowerCase()); // no por mucho madrugar amanece más temprano
 		System.out.println(cadena.toUpperCase()); // NO POR MUCHO MADRUGAR AMANECE MÁS TEMPRANO
-		System.out.println(cadena.replace('a', 'i').replace('e', 'i').replace('o', 'i').replace('u', 'i')); // Ni pir michi midrigir iminici más timprini
+		System.out.println(cadena.replace('a', 'i').replace('e', 'i').replace('o', 'i').replace('u', 'i'));
+		// Ni pir michi midrigir iminici más timprini
 	}
 
 	public static void igualdades() {
