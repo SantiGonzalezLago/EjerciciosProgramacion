@@ -2,7 +2,7 @@ package gal.teis.ejercicios;
 
 import java.util.Scanner;
 
-@SuppressWarnings("resource")
+@SuppressWarnings({"resource", "unused"})
 public class Unit1 {
 
 	public static void start() {
@@ -14,13 +14,13 @@ public class Unit1 {
 //		invertString("hola");
 	}
 
-	public static void invertStringBuilder(String palabra) {
+	private static void invertStringBuilder(String palabra) {
 		StringBuilder sb = new StringBuilder(palabra);
 		sb.reverse();
 		System.out.println(sb.toString());
 	}
 
-	public static void invertString(String palabra) {
+	private static void invertString(String palabra) {
 		String palabraInvertida = "";
 		for (int i = palabra.length() - 1; i >= 0; i--) {
 			palabraInvertida += palabra.charAt(i);
@@ -28,7 +28,7 @@ public class Unit1 {
 		System.out.println(palabraInvertida);
 	}
 
-	public static void stringMethods() {
+	private static void stringMethods() {
 		String cadena = "No por mucho madrugar amanece más temprano";
 		System.out.println(cadena.charAt(0)); // N
 		System.out.println(cadena.charAt(9)); // c
@@ -44,7 +44,7 @@ public class Unit1 {
 		// Ni pir michi midrigir iminici más timprini
 	}
 
-	public static void equalities() {
+	private static void equalities() {
 		int a1 = 2;
 		int a2 = 2;
 		Integer b1 = 2;
@@ -59,7 +59,7 @@ public class Unit1 {
 		System.out.println(d1 == d2);
 	}
 
-	public static void numberBetweenOneAndTen() {
+	private static void numberBetweenOneAndTen() {
 		int numero = 0;
 		Scanner teclado = new Scanner(System.in);
 		boolean numeroEstaEntre0Y10;
@@ -87,7 +87,7 @@ public class Unit1 {
 		System.out.println("Finalizada la prueba.");
 	}
 
-	public static void exceptions() {
+	private static void exceptions() {
 		int number;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("introduzca un numero");
