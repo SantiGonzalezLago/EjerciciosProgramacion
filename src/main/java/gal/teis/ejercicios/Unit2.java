@@ -1,6 +1,7 @@
 package gal.teis.ejercicios;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
@@ -20,7 +21,144 @@ public class Unit2 {
 //		temperatures();
 //		qualification();
 //		vehicles();
-		weekDay();
+//		weekDay();
+//		evenNumber();
+//		leapYears();
+//		login();
+//		sortNumbers();
+//		numberOfDigits();
+//		payment();
+		atm();
+	}
+
+	private static void atm() {
+		double balance = 400;
+		double amount;
+		int menu;
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.println("Elige la operación: ");
+			System.out.println("1. Ingresar");
+			System.out.println("2. Retirar");
+			System.out.println("3. Salir");
+			menu = sc.nextInt();
+			switch (menu) {
+			case 1:
+				System.out.print("Introduzca el valor a introducir: ");
+				amount = sc.nextDouble();
+				balance += amount;
+				System.out.printf("Tu saldo actual es de %.2f€%n", balance);
+				break;
+			case 2:
+				System.out.print("Introduzca el valor a retirar: ");
+				amount = sc.nextDouble();
+				if (amount > balance) {
+					System.out.println("No tienes tanto dinero en la cuenta.");
+				} else {
+					balance -= amount;
+					System.out.printf("Tu saldo actual es de %.2f€%n", balance);
+				}
+				break;
+			case 3:
+				System.out.println("Hasta adios");
+				break;
+			default:
+				System.out.println("Opción no válida");
+			}
+			System.out.println();
+		} while (menu != 3);
+	}
+
+	private static void payment() {
+		final String[] options = { "Al contado", "Con tarjeta", "Otro" };
+		float amount;
+		int response;
+		try {
+			amount = Float.parseFloat(JOptionPane.showInputDialog(null, "¿Cuál es el valor de la transacción?", "Precio", JOptionPane.QUESTION_MESSAGE));
+			response = JOptionPane.showOptionDialog(null, "¿Cómo se efectúa el pago?", "Método de pago", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[2]);
+			switch (response) {
+			case 0:
+				amount = (float) (amount * 0.95);
+				System.out.println( "Se aplica un descuento del 5%, el precio final es de " + String.format("%.2f", amount) + "€");
+				break;
+			case 1:
+				amount = (float) (amount * 1.03);
+				System.out.println( "Se aplica un recargo del 3%, el precio final es de " + String.format("%.2f", amount) + "€");
+				break;
+			case 2:
+				System.out.println("El precio final es de " + String.format("%.2f", amount) + "€");
+				break;
+			}
+		} catch (Exception ex) {
+			System.out.println("Se ha producido un error");
+		}
+	}
+
+	private static void numberOfDigits() {
+		int number;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca un número entre 0 y 99999");
+		number = sc.nextInt();
+		if (number < 0 || number > 99999) {
+			System.out.println("El número es inválido");
+		} else {
+			System.out.printf("El número introducido tiene %d dígitos.%n", String.valueOf(number).length());
+		}
+	}
+
+	private static void sortNumbers() {
+		int[] numbers = new int[3];
+		Scanner sc = new Scanner(System.in);
+		for (int i = 0; i < numbers.length; i++) {
+			System.out.print("Introduzca un valor: ");
+			numbers[i] = sc.nextInt();
+		}
+		Arrays.sort(numbers);
+		for (int i = 0; i < numbers.length; i++) {
+			System.out.print(numbers[i] + " ");
+		}
+		System.out.println();
+	}
+
+	private static void login() {
+		final String USER = "chanchi";
+		final String PWD = "1234";
+		String user, pwd;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Usuario: ");
+		user = sc.nextLine();
+		System.out.print("Contraseña: ");
+		pwd = sc.nextLine();
+		if (USER.equals(user) && PWD.equals(pwd)) {
+			System.out.println("Acceso concedido");
+		} else {
+			System.out.println("Acceso denegado");
+		}
+	}
+
+	private static void leapYears() {
+		int year;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduzca un año: ");
+		year = sc.nextInt();
+		if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
+			System.out.println(year + " es un año bisiesto");
+		} else {
+			System.out.println(year + " NO es un año bisiesto");
+		}
+	}
+
+	private static void evenNumber() {
+		int number;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduzca un número entero: ");
+		number = sc.nextInt();
+		if (number % 2 == 0) {
+			System.out.printf("%d es par%n", number);
+		} else {
+			System.out.printf("%d es impar%n", number);
+		}
+
 	}
 
 	private static void weekDay() {
