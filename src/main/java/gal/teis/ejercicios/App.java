@@ -1,19 +1,42 @@
 package gal.teis.ejercicios;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class App {
 	public static void main(String[] args) {
-		// exceptions();
-		// NumeroEntreUnoYDiez.prueba();
-		// igualdades();
-		// stringMethods();
-		// invertirStringBuilder("hola");
-		// invertirString("hola");
-		convertirHoras(1000);
+//		exceptions();
+//		NumeroEntreUnoYDiez.prueba();
+//		equalities();
+//		stringMethods();
+//		invertStringBuilder("hola");
+//		invertString("hola");
+//		convertHours(1000);
+//		dateTime();
+		addTwoNumbers();
+	}
+	
+	public static void addTwoNumbers() {
+		Scanner sc = new Scanner(System.in);
+		int n1, n2;
+		System.out.print("Introduce un número entero: ");
+		n1 = sc.nextInt();
+		System.out.print("Introduce otro número entero: ");
+		n2 = sc.nextInt();
+		sc.close();
+		System.out.println(n1 + " + " + n2 + " = " + (n1 + n2));
+	}
+	
+	public static void dateTime() {
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyy");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("kk:mm:ss");
+		System.out.println("La fecha actual es: " + dateFormat.format(date));
+		System.out.println("La hora actual es: " + timeFormat.format(date));
 	}
 
-	public static void convertirHoras (int horas) {
+	public static void convertHours (int horas) {
 		int semanas, dias, restoHoras;
 		dias = horas/24;
 		restoHoras = horas%24;
@@ -22,13 +45,13 @@ public class App {
 		System.out.println(horas +" horas corresponden a " + semanas + " semanas, " + dias + " días y " + restoHoras + " horas.");
 	}
 
-	public static void invertirStringBuilder(String palabra) {
+	public static void invertStringBuilder(String palabra) {
 		StringBuilder sb = new StringBuilder(palabra);
 		sb.reverse();
 		System.out.println(sb.toString());
 	}
 
-	public static void invertirString(String palabra) {
+	public static void invertString(String palabra) {
 		String palabraInvertida = "";
 		for (int i = palabra.length() - 1; i >= 0; i--) {
 			palabraInvertida += palabra.charAt(i);
@@ -52,7 +75,7 @@ public class App {
 		// Ni pir michi midrigir iminici más timprini
 	}
 
-	public static void igualdades() {
+	public static void equalities() {
 		int a1 = 2;
 		int a2 = 2;
 		Integer b1 = 2;
