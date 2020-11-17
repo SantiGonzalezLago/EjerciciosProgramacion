@@ -28,8 +28,8 @@ public class Unit2 {
 //		login();
 //		sortNumbers();
 //		numberOfDigits();
-//		payment();
-		atm();
+		payment();
+//		atm();
 	}
 
 	private static void atm() {
@@ -69,20 +69,21 @@ public class Unit2 {
 			System.out.println();
 		} while (menu != 3);
 	}
+
 	private static void payment() {
 		final String[] options = { "Al contado", "Con tarjeta", "Otro" };
-		float amount;
+		double amount;
 		int response;
 		try {
 			amount = Float.parseFloat(JOptionPane.showInputDialog(null, "¿Cuál es el valor de la transacción?", "Precio", JOptionPane.QUESTION_MESSAGE));
 			response = JOptionPane.showOptionDialog(null, "¿Cómo se efectúa el pago?", "Método de pago", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[2]);
 			switch (response) {
 			case 0:
-				amount = (float) (amount * 0.95);
+				amount = amount * 0.95;
 				System.out.println( "Se aplica un descuento del 5%, el precio final es de " + String.format("%.2f", amount) + "€");
 				break;
 			case 1:
-				amount = (float) (amount * 1.03);
+				amount = amount * 1.03;
 				System.out.println( "Se aplica un recargo del 3%, el precio final es de " + String.format("%.2f", amount) + "€");
 				break;
 			case 2:
