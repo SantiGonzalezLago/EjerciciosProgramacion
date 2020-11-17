@@ -1,5 +1,6 @@
 package gal.teis.ejercicios;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -32,8 +33,8 @@ public class Unit2 {
 	}
 
 	private static void atm() {
-		double balance = 400;
-		double amount;
+		BigDecimal balance = new BigDecimal(400);
+		BigDecimal amount;
 		int menu;
 		Scanner sc = new Scanner(System.in);
 		do {
@@ -45,17 +46,17 @@ public class Unit2 {
 			switch (menu) {
 			case 1:
 				System.out.print("Introduzca el valor a introducir: ");
-				amount = sc.nextDouble();
-				balance += amount;
+				amount = new BigDecimal(sc.nextDouble());
+				balance = balance.add(amount);
 				System.out.printf("Tu saldo actual es de %.2f€%n", balance);
 				break;
 			case 2:
 				System.out.print("Introduzca el valor a retirar: ");
-				amount = sc.nextDouble();
-				if (amount > balance) {
+				amount = new BigDecimal(sc.nextDouble());
+				if (amount.compareTo(balance) > 0) {
 					System.out.println("No tienes tanto dinero en la cuenta.");
 				} else {
-					balance -= amount;
+					balance = balance.subtract(amount);
 					System.out.printf("Tu saldo actual es de %.2f€%n", balance);
 				}
 				break;
@@ -68,7 +69,6 @@ public class Unit2 {
 			System.out.println();
 		} while (menu != 3);
 	}
-
 	private static void payment() {
 		final String[] options = { "Al contado", "Con tarjeta", "Otro" };
 		float amount;
