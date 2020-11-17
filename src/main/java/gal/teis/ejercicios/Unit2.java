@@ -22,46 +22,13 @@ public class Unit2 {
 //		qualification();
 //		vehicles();
 //		weekDay();
-		menu();
-	}
-
-	private static void menu() {
-		int menu;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Elige el ejercicion: ");
-		System.out.println("1. Determina si un número introducido por pantalla es par o no.");
-		System.out.println("2. Determina si un año es bisiesto o no.");
-		System.out.println("3. Pedir el nombre de usuario y contraseña, mostrar un mensaje indicando si se corresponde con unos datos dados o no.");
-		System.out.println("4. Pedir 3 número y mostrarlos en orden de menor a mayor");
-		System.out.println("5. Pedir un número entre 0 y 99999 y decir cuantas cifras tiene.");
-		System.out.println("6. Una farmacia desea un programa para ingresar el valor de compra.");
-		System.out.println("7. Cajero automático.");
-		menu = sc.nextInt();
-		switch (menu) {
-		case 1:
-			evenNumber();
-			break;
-		case 2:
-			leapYears();
-			break;
-		case 3:
-			login();
-			break;
-		case 4:
-			sortNumbers();
-			break;
-		case 5:
-			numberOfDigits();
-			break;
-		case 6:
-			payment();
-			break;
-		case 7:
-			atm();
-			break;
-		default:
-			System.out.println("Esa opción no existe");
-		}
+//		evenNumber();
+//		leapYears();
+//		login();
+//		sortNumbers();
+//		numberOfDigits();
+//		payment();
+		atm();
 	}
 
 	private static void atm() {
