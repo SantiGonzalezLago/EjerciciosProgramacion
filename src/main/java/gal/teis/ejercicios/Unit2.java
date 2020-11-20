@@ -28,8 +28,41 @@ public class Unit2 {
 //		login();
 //		sortNumbers();
 //		numberOfDigits();
-		payment();
+//		payment();
 //		atm();
+//		showEven();
+		showRange();
+	}
+
+	private static void showRange() {
+		int minValue, maxValue;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduce el valor mínimo a mostrar: ");
+		minValue = sc.nextInt();
+		System.out.print("Introduce el valor máximo a mostrar: ");
+		maxValue = sc.nextInt();
+		if (maxValue < minValue) {
+			System.out.println("Error");
+		} else {
+			for (int i = minValue; i <= maxValue; i++) {
+				System.out.print(i + " ");
+			}
+			System.out.println();
+		}
+		
+	}
+
+	private static void showEven() {
+		int maxValue;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduce el valor máximo a mostrar: ");
+		maxValue = sc.nextInt();
+		for (int i = 0; i <= maxValue; i++) {
+			if (i % 2 == 0) {
+				System.out.print(i + " ");
+			}
+		}
+		System.out.println();
 	}
 
 	private static void atm() {
@@ -75,16 +108,20 @@ public class Unit2 {
 		double amount;
 		int response;
 		try {
-			amount = Float.parseFloat(JOptionPane.showInputDialog(null, "¿Cuál es el valor de la transacción?", "Precio", JOptionPane.QUESTION_MESSAGE));
-			response = JOptionPane.showOptionDialog(null, "¿Cómo se efectúa el pago?", "Método de pago", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[2]);
+			amount = Float.parseFloat(JOptionPane.showInputDialog(null, "¿Cuál es el valor de la transacción?",
+					"Precio", JOptionPane.QUESTION_MESSAGE));
+			response = JOptionPane.showOptionDialog(null, "¿Cómo se efectúa el pago?", "Método de pago",
+					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[2]);
 			switch (response) {
 			case 0:
 				amount = amount * 0.95;
-				System.out.println( "Se aplica un descuento del 5%, el precio final es de " + String.format("%.2f", amount) + "€");
+				System.out.println(
+						"Se aplica un descuento del 5%, el precio final es de " + String.format("%.2f", amount) + "€");
 				break;
 			case 1:
 				amount = amount * 1.03;
-				System.out.println( "Se aplica un recargo del 3%, el precio final es de " + String.format("%.2f", amount) + "€");
+				System.out.println(
+						"Se aplica un recargo del 3%, el precio final es de " + String.format("%.2f", amount) + "€");
 				break;
 			case 2:
 				System.out.println("El precio final es de " + String.format("%.2f", amount) + "€");
