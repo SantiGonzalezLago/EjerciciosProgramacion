@@ -20,7 +20,6 @@ public class Things {
 		} catch (ArithmeticException ex) {
 			System.out.println("No ");
 		}
-		
 	}
 
 	private static long calculateFactorial(long num) throws ArithmeticException {
