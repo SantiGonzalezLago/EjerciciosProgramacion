@@ -59,49 +59,91 @@ public class Unit2 {
 	private static void atm2() {
 		BigDecimal balance = new BigDecimal(400);
 		BigDecimal amount;
-		String pwd, pwdAttempt;
-		int menu;
+		String pwd = "1234", pwdAttempt;
+		int menu, lgnMenu;
 		Scanner sc = new Scanner(System.in);
-		//TODO comprobar contraseña
 		do {
-			System.out.println("Elige la operación: ");
-			System.out.println("1. Ingresar");
-			System.out.println("2. Retirar");
-			System.out.println("3. Ver saldo");
-			System.out.println("4. Cambiar contraseña");
-			System.out.println("5. Salir");
-			menu = sc.nextInt();
-			switch (menu) {
+			System.out.println("¿Qué desea hacer?");
+			System.out.println("1. Iniciar sesión");
+			System.out.println("2. Salir");
+			lgnMenu = sc.nextInt();
+			switch (lgnMenu) {
 			case 1:
-				System.out.print("Introduzca el valor a introducir: ");
-				amount = new BigDecimal(sc.nextDouble());
-				balance = balance.add(amount);
-				System.out.printf("Tu saldo actual es de %.2f€%n", balance);
-				break;
-			case 2:
-				System.out.print("Introduzca el valor a retirar: ");
-				amount = new BigDecimal(sc.nextDouble());
-				if (amount.compareTo(balance) > 0) {
-					System.out.println("No tienes tanto dinero en la cuenta.");
+				System.out.print("Introduzca la contraseña: ");
+				sc.nextLine();
+				pwdAttempt = sc.nextLine();
+				if (pwd.equals(pwdAttempt)) {
+					System.out.println("Acceso concedido");
+					do {
+						System.out.println("Elige la operación:");
+						System.out.println("1. Ingresar");
+						System.out.println("2. Retirar");
+						System.out.println("3. Ver saldo");
+						System.out.println("4. Cambiar contraseña");
+						System.out.println("5. Salir");
+						menu = sc.nextInt();
+						switch (menu) {
+						case 1:
+							System.out.print("Introduzca el valor a introducir: ");
+							amount = new BigDecimal(sc.nextDouble());
+							balance = balance.add(amount);
+							System.out.printf("Tu saldo actual es de %.2f€%n", balance);
+							break;
+						case 2:
+							System.out.print("Introduzca el valor a retirar: ");
+							amount = new BigDecimal(sc.nextDouble());
+							if (amount.compareTo(balance) > 0) {
+								System.out.println("No tienes tanto dinero en la cuenta.");
+							} else {
+								balance = balance.subtract(amount);
+								System.out.printf("Tu saldo actual es de %.2f€%n", balance);
+							}
+							break;
+						case 3:
+							System.out.printf("Tu saldo actual es de %.2f€%n", balance);
+							break;
+						case 4:
+							if (sc.hasNextLine()) {
+								sc.nextLine();
+							}
+							String newPwd, repeatPwd;
+							System.out.print("Introduzca la contraseña actual: ");
+							pwdAttempt = sc.nextLine();
+							if (pwd.equals(pwdAttempt)) {
+								System.out.print("Introduzca la nueva contraseña: ");
+								newPwd = sc.nextLine();
+								System.out.print("Repita la nueva contraseña: ");
+								repeatPwd = sc.nextLine();
+								if (newPwd.equals(repeatPwd)) {
+									System.out.println("Contraseña cambiada");
+									pwd = newPwd;
+								} else {
+									System.out.println("Las contraseñas no coinciden");
+								}
+							} else {
+								System.out.println("Contraseña incorrecta");
+							}
+							break;
+						case 5:
+							System.out.println("Hasta adios");
+							break;
+						default:
+							System.out.println("Opción no válida");
+						}
+						System.out.println();
+					} while (menu != 5);
 				} else {
-					balance = balance.subtract(amount);
-					System.out.printf("Tu saldo actual es de %.2f€%n", balance);
+					System.out.println("Acceso denegado");
 				}
 				break;
-			case 3:
-				//TODO ver saldo
-				break;
-			case 4:
-				//TODO cambiar pwd
-				break;
-			case 5:
+			case 2:
 				System.out.println("Hasta adios");
 				break;
 			default:
 				System.out.println("Opción no válida");
 			}
 			System.out.println();
-		} while (menu != 5);
+		} while (lgnMenu != 2);
 	}
 
 	private static void rectangle() {
