@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 @SuppressWarnings({ "resource", "unused" })
 public class Unit2 {
-
+ 
 	public static void start() {
 //		convertHours(1000);
 //		dateTime();
@@ -23,6 +23,8 @@ public class Unit2 {
 //		qualification();
 //		vehicles();
 //		weekDay();
+		
+//		EJERCICIOS if
 //		evenNumber();
 //		leapYears();
 //		login();
@@ -31,7 +33,122 @@ public class Unit2 {
 //		payment();
 //		atm();
 //		showEven();
-		showRange();
+//		showRange();
+		
+//		EJERCICIOS for
+//		factorial();
+//		divisors();
+		sigmaNaturalNumbers();
+//		avgNegativesAndAmountOfZeroes();
+//		checkPrime();
+//		staircaise();
+	}
+
+	private static void sigmaNaturalNumbers() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduzca el valor a calcular: ");
+		int num = sc.nextInt();
+		long result = calculateSigma(num);
+		System.out.println("\u03A3" + num + " = " + result);
+	}
+
+	//Este método implemente la recursión para el método anterior
+	private static int calculateSigma(int num) throws ArithmeticException {
+		if (num == 0) {
+			return 0;
+		}
+		if (num > 0) return num + calculateSigma(num - 1);
+		else  return num + calculateSigma(num + 1);
+	}
+
+	private static void staircaise() {
+		for (int i = 1; i <= 10; i++) {
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j % 10);
+			}
+			System.out.println();
+		}
+	}
+
+	private static void checkPrime() {
+		Scanner sc = new Scanner(System.in);
+		int number;
+		boolean isPrime = true;
+		System.out.print("Introduzca un número: ");
+		number = sc.nextInt();
+		if (number < 2) {
+			System.out.println(number + " no es un número primo");
+		} else {
+			for (int i = 2; i < number; i++) {
+				if (number % i == 0) {
+					isPrime = false;
+				}
+			}
+			if (isPrime) {
+				System.out.println(number + " es un número primo.");
+			} else {
+				System.out.println(number + " no es un número primo");
+			}
+		}
+	}
+
+	private static void avgNegativesAndAmountOfZeroes() {
+		Scanner sc = new Scanner(System.in);
+		float number, sumNegatives = 0;
+		int amountNegatives = 0, amountZeroes = 0;
+		System.out.println("Introduzca 10 números, por favor");
+		for (int i = 0; i <10; i++) {
+			number = sc.nextFloat();
+			if (number == 0) {
+				amountZeroes++;
+			} else if (number < 0) {
+				amountNegatives++;
+				sumNegatives += number;
+			}
+		}
+		System.out.println("Has introducido " + amountZeroes + " ceros.");
+		if (amountNegatives > 0) {
+			System.out.printf("La media de los números negativos es %f.%n", (sumNegatives / amountNegatives));
+		} else {
+			System.out.println("No has introducido números negativos.");
+		}
+	}
+
+	private static void divisors() {
+		Scanner sc = new Scanner(System.in);
+		int number;
+		System.out.print("Introduzca un número: ");
+		number = sc.nextInt();
+		int i  = (number > 0) ? 1 : number;
+		for (; i <= Math.abs(number); i++) {
+			if (i != 0 && number % i == 0) {
+				System.out.print(i + " ");
+			}
+		}
+		System.out.println();
+	}
+
+	private static void factorial() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduzca el valor a calcular: ");
+		int num = sc.nextInt();
+		try {
+			long result = calculateFactorial(num);
+			System.out.println(num + "! = " + result);
+		} catch (ArithmeticException ex) {
+			System.out.println("No existe el factorial de un número negativo");
+		}
+	}
+
+	//Este método implemente la recursión para el método anterior
+	private static long calculateFactorial(long num) throws ArithmeticException {
+		if (num < 0) {
+			throw new ArithmeticException();
+		}
+		if (num == 0) {
+			return 1;
+		}
+		return num * calculateFactorial(num - 1);
 	}
 
 	private static void showRange() {
