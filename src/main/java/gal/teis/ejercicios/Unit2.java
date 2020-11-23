@@ -23,6 +23,8 @@ public class Unit2 {
 //		qualification();
 //		vehicles();
 //		weekDay();
+//		showEven();
+//		showRange();
 		
 //		EJERCICIOS if
 //		evenNumber();
@@ -32,8 +34,6 @@ public class Unit2 {
 //		numberOfDigits();
 //		payment();
 //		atm();
-//		showEven();
-//		showRange();
 		
 //		EJERCICIOS for
 //		factorial();
