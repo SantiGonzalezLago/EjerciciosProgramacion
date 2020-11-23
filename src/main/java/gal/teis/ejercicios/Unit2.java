@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 @SuppressWarnings({ "resource", "unused" })
 public class Unit2 {
- 
+
 	public static void start() {
 //		convertHours(1000);
 //		dateTime();
@@ -25,7 +25,7 @@ public class Unit2 {
 //		weekDay();
 //		showEven();
 //		showRange();
-		
+
 //		EJERCICIOS if
 //		evenNumber();
 //		leapYears();
@@ -34,14 +34,83 @@ public class Unit2 {
 //		numberOfDigits();
 //		payment();
 //		atm();
-		
+
 //		EJERCICIOS for
 //		factorial();
 //		divisors();
-		sigmaNaturalNumbers();
+//		sigmaNaturalNumbers();
 //		avgNegativesAndAmountOfZeroes();
 //		checkPrime();
 //		staircaise();
+
+//		EJERCICIOS while
+//		tens();
+//		oneToTen();
+//		tenToOne();
+//		factorialAndSigmaWhile();
+		guessTheNumber();
+	}
+
+	private static void guessTheNumber() {
+		int number, attempt = 1, guess = -1;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Se va a generar aleatoriamente un número entre 0 y 100. Tiene 10 intentos para adivinarlo.");
+		number = new Random().nextInt(101);
+		while (attempt <= 10 && number != guess) {
+			System.out.print("Intento número "+ attempt + ". Intente adivinar: ");
+			guess = sc.nextInt();
+			if (guess > number) {
+				System.out.println("Demasiado alto");
+			} else if (guess < number) {
+				System.out.println("Demasiado bajo");
+			}
+			attempt++;
+		}
+		if (number != guess) {
+			System.out.println("Te has quedado sin intentos.");
+		} else {
+			System.out.println("¡Has adivinado!");
+		}
+	}
+
+	private static void factorialAndSigmaWhile() {
+		Scanner sc = new Scanner(System.in);
+		int number, sigma = 0, factorial = 1;
+		System.out.print("Introduzca el valor a calcular: ");
+		number = sc.nextInt();
+		if (number < 0 || number > 10) {
+			System.out.println("El número tiene que estar entre 0 y 10");
+		}
+		int i = 1;
+		while (i <= number) {
+			sigma += i;
+			factorial *= i;
+			i++;
+		}
+		System.out.println("\u03A3" + number + " = " + sigma);
+		System.out.println(number + "! = " + factorial);
+	}
+
+	private static void tenToOne() {
+		int x = 10;
+		while (x > 0) {
+			System.out.println(x--);
+		}
+	}
+
+	private static void oneToTen() {
+		int number = 1;
+		while (number <= 10) {
+			System.out.println(number++);
+		}
+	}
+
+	private static void tens() {
+		int number = 10;
+		while (number <= 100) {
+			System.out.println(number);
+			number += 10;
+		}
 	}
 
 	private static void sigmaNaturalNumbers() {
@@ -52,13 +121,15 @@ public class Unit2 {
 		System.out.println("\u03A3" + num + " = " + result);
 	}
 
-	//Este método implemente la recursión para el método anterior
+	// Este método implemente la recursión para el método anterior
 	private static int calculateSigma(int num) throws ArithmeticException {
 		if (num == 0) {
 			return 0;
 		}
-		if (num > 0) return num + calculateSigma(num - 1);
-		else  return num + calculateSigma(num + 1);
+		if (num > 0)
+			return num + calculateSigma(num - 1);
+		else
+			return num + calculateSigma(num + 1);
 	}
 
 	private static void staircaise() {
@@ -97,7 +168,7 @@ public class Unit2 {
 		float number, sumNegatives = 0;
 		int amountNegatives = 0, amountZeroes = 0;
 		System.out.println("Introduzca 10 números, por favor");
-		for (int i = 0; i <10; i++) {
+		for (int i = 0; i < 10; i++) {
 			number = sc.nextFloat();
 			if (number == 0) {
 				amountZeroes++;
@@ -119,7 +190,7 @@ public class Unit2 {
 		int number;
 		System.out.print("Introduzca un número: ");
 		number = sc.nextInt();
-		int i  = (number > 0) ? 1 : number;
+		int i = (number > 0) ? 1 : number;
 		for (; i <= Math.abs(number); i++) {
 			if (i != 0 && number % i == 0) {
 				System.out.print(i + " ");
@@ -140,7 +211,7 @@ public class Unit2 {
 		}
 	}
 
-	//Este método implemente la recursión para el método anterior
+	// Este método implemente la recursión para el método anterior
 	private static long calculateFactorial(long num) throws ArithmeticException {
 		if (num < 0) {
 			throw new ArithmeticException();
@@ -166,7 +237,7 @@ public class Unit2 {
 			}
 			System.out.println();
 		}
-		
+
 	}
 
 	private static void showEven() {
