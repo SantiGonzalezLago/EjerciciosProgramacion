@@ -48,16 +48,111 @@ public class Unit2 {
 //		oneToTen();
 //		tenToOne();
 //		factorialAndSigmaWhile();
-		guessTheNumber();
+//		guessTheNumber();
+
+//		EJERCICIOS do while
+//		multiplicationTables();
+//		rectangle();
+		atm2();
+	}
+
+	private static void atm2() {
+		BigDecimal balance = new BigDecimal(400);
+		BigDecimal amount;
+		String pwd, pwdAttempt;
+		int menu;
+		Scanner sc = new Scanner(System.in);
+		//TODO comprobar contraseña
+		do {
+			System.out.println("Elige la operación: ");
+			System.out.println("1. Ingresar");
+			System.out.println("2. Retirar");
+			System.out.println("3. Ver saldo");
+			System.out.println("4. Cambiar contraseña");
+			System.out.println("5. Salir");
+			menu = sc.nextInt();
+			switch (menu) {
+			case 1:
+				System.out.print("Introduzca el valor a introducir: ");
+				amount = new BigDecimal(sc.nextDouble());
+				balance = balance.add(amount);
+				System.out.printf("Tu saldo actual es de %.2f€%n", balance);
+				break;
+			case 2:
+				System.out.print("Introduzca el valor a retirar: ");
+				amount = new BigDecimal(sc.nextDouble());
+				if (amount.compareTo(balance) > 0) {
+					System.out.println("No tienes tanto dinero en la cuenta.");
+				} else {
+					balance = balance.subtract(amount);
+					System.out.printf("Tu saldo actual es de %.2f€%n", balance);
+				}
+				break;
+			case 3:
+				//TODO ver saldo
+				break;
+			case 4:
+				//TODO cambiar pwd
+				break;
+			case 5:
+				System.out.println("Hasta adios");
+				break;
+			default:
+				System.out.println("Opción no válida");
+			}
+			System.out.println();
+		} while (menu != 5);
+	}
+
+	private static void rectangle() {
+		int height, width, curHeight, curWidth;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduzca la altura: ");
+		height = sc.nextInt();
+		System.out.print("Introduzca la anchura: ");
+		width = sc.nextInt();
+		curHeight = 0;
+		do {
+			curHeight++;
+			curWidth = 0;
+			do {
+				curWidth++;
+				if (curHeight == 1 || curHeight == height) {
+					System.out.print('*');
+				} else {
+					if (curWidth == 1 || curWidth == width) {
+						System.out.print('*');
+					} else {
+						System.out.print(' ');
+					}
+				}
+			} while (curWidth < width);
+			System.out.println();
+		} while (curHeight < height);
+	}
+
+	private static void multiplicationTables() {
+		int table = 2;
+		do {
+			System.out.println("Tabla del " + table);
+			int number = 0;
+			do {
+				number++;
+				System.out.println(table + " x " + number + " = " + table * number);
+			} while (number < 10);
+			System.out.println();
+			table++;
+		} while (table <= 9);
 	}
 
 	private static void guessTheNumber() {
 		int number, attempt = 1, guess = -1;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Se va a generar aleatoriamente un número entre 0 y 100. Tiene 10 intentos para adivinarlo.");
+		System.out
+				.println("Se va a generar aleatoriamente un número entre 0 y 100. Tiene 10 intentos para adivinarlo.");
 		number = new Random().nextInt(101);
 		while (attempt <= 10 && number != guess) {
-			System.out.print("Intento número "+ attempt + ". Intente adivinar: ");
+			System.out.print("Intento número " + attempt + ". Intente adivinar: ");
 			guess = sc.nextInt();
 			if (guess > number) {
 				System.out.println("Demasiado alto");
