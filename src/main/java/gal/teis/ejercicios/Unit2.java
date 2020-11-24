@@ -114,21 +114,21 @@ public class Unit2 {
 			System.out.println("No hay cambio.");
 		} else {
 			change = payment - PRIZE;
-			change = deductBillsOrCoins(change, 500f, false);
-			change = deductBillsOrCoins(change, 200f, false);
-			change = deductBillsOrCoins(change, 100f, false);
-			change = deductBillsOrCoins(change, 50f, false);
-			change = deductBillsOrCoins(change, 20f, false);
-			change = deductBillsOrCoins(change, 10f, false);
-			change = deductBillsOrCoins(change, 5f, false);
-			change = deductBillsOrCoins(change, 2f, true);
-			change = deductBillsOrCoins(change, 1f, true);
-			change = deductBillsOrCoins(change, 0.50f, true);
-			change = deductBillsOrCoins(change, 0.20f, true);
-			change = deductBillsOrCoins(change, 0.10f, true);
-			change = deductBillsOrCoins(change, 0.05f, true);
-			change = deductBillsOrCoins(change, 0.02f, true);
-			change = deductBillsOrCoins(change, 0.01f, true);
+			change = deductBillsOrCoins(change, 500, false);
+			change = deductBillsOrCoins(change, 200, false);
+			change = deductBillsOrCoins(change, 100, false);
+			change = deductBillsOrCoins(change, 50, false);
+			change = deductBillsOrCoins(change, 20, false);
+			change = deductBillsOrCoins(change, 10, false);
+			change = deductBillsOrCoins(change, 5, false);
+			change = deductBillsOrCoins(change, 2, true);
+			change = deductBillsOrCoins(change, 1, true);
+			change = deductBillsOrCoins(change, 0.50, true);
+			change = deductBillsOrCoins(change, 0.20, true);
+			change = deductBillsOrCoins(change, 0.10, true);
+			change = deductBillsOrCoins(change, 0.05, true);
+			change = deductBillsOrCoins(change, 0.02, true);
+			change = deductBillsOrCoins(change, 0.01, true);
 		}
 	}
 
