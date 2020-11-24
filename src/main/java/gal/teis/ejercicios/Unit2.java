@@ -57,20 +57,29 @@ public class Unit2 {
 //		atm2();
 
 //		PRÁCTICAS
-//		caesarCipher();
+		caesarCipher();
 //		change();
-		fibonacci();
+//		fibonacci();
 	}
 
 	private static void fibonacci() {
-		long num1 = 1, num2 = 0, curNum = 0, position;
+		long num1 = 1, num2 = 0, curNum = 0, position = 0;
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Introduzca la posición de secuencia que desee: ");
-		position = sc.nextInt();
+		boolean error;
+		do {
+			error = false;
+			System.out.print("Introduzca la posición de secuencia que desee: ");
+			try {
+				position = sc.nextInt();
+			} catch (InputMismatchException ex) {
+				error = true;
+				sc.nextLine();
+			}
+		} while (error);
 		if (position > 92) {
 			System.out.println("El programa no funciona para posiciones superiores a 92");
 		} else if (position > 0) {
-			for (int i = 1; i <=position; i++) {
+			for (int i = 1; i <= position; i++) {
 				curNum = num1 + num2;
 				if (i % 2 == 0) {
 					num2 = curNum;
@@ -86,10 +95,19 @@ public class Unit2 {
 
 	private static void change() {
 		final double PRIZE = 4.65;
-		double payment, change;
+		double payment = 0f, change;
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Introduzca el dinero: ");
-		payment = sc.nextDouble();
+		boolean error;
+		do {
+			error = false;
+			System.out.print("Introduzca el dinero: ");
+			try {
+				payment = sc.nextDouble();
+			} catch (InputMismatchException ex) {
+				error = true;
+				sc.nextLine();
+			}
+		} while (error);
 		if (payment < PRIZE) {
 			System.out.println("No has introducido suficiente dinero.");
 		} else if (payment == PRIZE) {
@@ -121,7 +139,7 @@ public class Unit2 {
 			counter++;
 		}
 		if (counter > 0) {
-			System.out.printf("%s de %.2f€: %d%n", coin?"Monedas":"Billetes", value, counter);
+			System.out.printf("%s de %.2f€: %d%n", coin ? "Monedas" : "Billetes", value, counter);
 		}
 		return change;
 	}
@@ -129,12 +147,21 @@ public class Unit2 {
 	private static void caesarCipher() {
 		String text;
 		StringBuilder cipheredText;
-		int displacement;
+		int displacement = 0;
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Introduzca el texto a cifrar: ");
 		text = sc.nextLine();
-		System.out.print("Introduzca el desplazamiento: ");
-		displacement = sc.nextInt();
+		boolean error;
+		do {
+			error = false;
+			System.out.print("Introduzca el desplazamiento: ");
+			try {
+				displacement = sc.nextInt();
+			} catch (InputMismatchException ex) {
+				error = true;
+				sc.nextLine();
+			}
+		} while (error);
 		cipheredText = new StringBuilder();
 		for (char c : text.toCharArray()) {
 			cipheredText.append(encodeLetter(c, displacement));
@@ -179,6 +206,7 @@ public class Unit2 {
 				lgnMenu = sc.nextInt();
 			} catch (InputMismatchException ex) {
 				lgnMenu = 0;
+				sc.nextLine();
 			}
 			switch (lgnMenu) {
 			case 1:
@@ -198,6 +226,7 @@ public class Unit2 {
 							menu = sc.nextInt();
 						} catch (InputMismatchException ex) {
 							menu = 0;
+							sc.nextLine();
 						}
 						switch (menu) {
 						case 1:
@@ -521,6 +550,7 @@ public class Unit2 {
 				menu = sc.nextInt();
 			} catch (InputMismatchException ex) {
 				menu = 0;
+				sc.nextLine();
 			}
 			switch (menu) {
 			case 1:
