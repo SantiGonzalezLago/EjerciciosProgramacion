@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -53,7 +54,115 @@ public class Unit2 {
 //		EJERCICIOS do while
 //		multiplicationTables();
 //		rectangle();
-		atm2();
+//		atm2();
+
+//		PRÁCTICAS
+//		caesarCipher();
+//		change();
+		fibonacci();
+	}
+
+	private static void fibonacci() {
+		long num1 = 1, num2 = 0, curNum = 0, position;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduzca la posición de secuencia que desee: ");
+		position = sc.nextInt();
+		if (position > 92) {
+			System.out.println("El programa no funciona para posiciones superiores a 92");
+		} else if (position > 0) {
+			for (int i = 1; i <=position; i++) {
+				curNum = num1 + num2;
+				if (i % 2 == 0) {
+					num2 = curNum;
+				} else {
+					num1 = curNum;
+				}
+			}
+			System.out.println("El número buscado es " + curNum);
+		} else {
+			System.out.println("El número debe ser positivo.");
+		}
+	}
+
+	private static void change() {
+		final double PRIZE = 4.65;
+		double payment, change;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduzca el dinero: ");
+		payment = sc.nextDouble();
+		if (payment < PRIZE) {
+			System.out.println("No has introducido suficiente dinero.");
+		} else if (payment == PRIZE) {
+			System.out.println("No hay cambio.");
+		} else {
+			change = payment - PRIZE;
+			change = deductBillsOrCoins(change, 500f, false);
+			change = deductBillsOrCoins(change, 200f, false);
+			change = deductBillsOrCoins(change, 100f, false);
+			change = deductBillsOrCoins(change, 50f, false);
+			change = deductBillsOrCoins(change, 20f, false);
+			change = deductBillsOrCoins(change, 10f, false);
+			change = deductBillsOrCoins(change, 5f, false);
+			change = deductBillsOrCoins(change, 2f, true);
+			change = deductBillsOrCoins(change, 1f, true);
+			change = deductBillsOrCoins(change, 0.50f, true);
+			change = deductBillsOrCoins(change, 0.20f, true);
+			change = deductBillsOrCoins(change, 0.10f, true);
+			change = deductBillsOrCoins(change, 0.05f, true);
+			change = deductBillsOrCoins(change, 0.02f, true);
+			change = deductBillsOrCoins(change, 0.01f, true);
+		}
+	}
+
+	private static double deductBillsOrCoins(double change, double value, boolean coin) {
+		int counter = 0;
+		while (change > value) {
+			change -= value;
+			counter++;
+		}
+		if (counter > 0) {
+			System.out.printf("%s de %.2f€: %d%n", coin?"Monedas":"Billetes", value, counter);
+		}
+		return change;
+	}
+
+	private static void caesarCipher() {
+		String text;
+		StringBuilder cipheredText;
+		int displacement;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduzca el texto a cifrar: ");
+		text = sc.nextLine();
+		System.out.print("Introduzca el desplazamiento: ");
+		displacement = sc.nextInt();
+		cipheredText = new StringBuilder();
+		for (char c : text.toCharArray()) {
+			cipheredText.append(encodeLetter(c, displacement));
+		}
+		System.out.println(cipheredText);
+	}
+
+	private static char encodeLetter(char letter, int displacement) {
+		final String ALPHABET = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+		int ogPosition, endPosition;
+		boolean caps;
+		ogPosition = ALPHABET.indexOf(Character.toUpperCase(letter));
+		if (ogPosition != -1) {
+			caps = Character.isUpperCase(letter);
+			endPosition = ogPosition + displacement;
+			while (endPosition < 0) {
+				endPosition += ALPHABET.length();
+			}
+			while (endPosition >= ALPHABET.length()) {
+				endPosition -= ALPHABET.length();
+			}
+			if (caps) {
+				return ALPHABET.charAt(endPosition);
+			} else {
+				return Character.toLowerCase(ALPHABET.charAt(endPosition));
+			}
+		}
+		return letter;
 	}
 
 	private static void atm2() {
@@ -66,7 +175,11 @@ public class Unit2 {
 			System.out.println("¿Qué desea hacer?");
 			System.out.println("1. Iniciar sesión");
 			System.out.println("2. Salir");
-			lgnMenu = sc.nextInt();
+			try {
+				lgnMenu = sc.nextInt();
+			} catch (InputMismatchException ex) {
+				lgnMenu = 0;
+			}
 			switch (lgnMenu) {
 			case 1:
 				System.out.print("Introduzca la contraseña: ");
@@ -81,7 +194,11 @@ public class Unit2 {
 						System.out.println("3. Ver saldo");
 						System.out.println("4. Cambiar contraseña");
 						System.out.println("5. Salir");
-						menu = sc.nextInt();
+						try {
+							menu = sc.nextInt();
+						} catch (InputMismatchException ex) {
+							menu = 0;
+						}
 						switch (menu) {
 						case 1:
 							System.out.print("Introduzca el valor a introducir: ");
@@ -400,7 +517,11 @@ public class Unit2 {
 			System.out.println("1. Ingresar");
 			System.out.println("2. Retirar");
 			System.out.println("3. Salir");
-			menu = sc.nextInt();
+			try {
+				menu = sc.nextInt();
+			} catch (InputMismatchException ex) {
+				menu = 0;
+			}
 			switch (menu) {
 			case 1:
 				System.out.print("Introduzca el valor a introducir: ");
