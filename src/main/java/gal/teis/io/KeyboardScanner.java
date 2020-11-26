@@ -41,6 +41,10 @@ public final class KeyboardScanner {
 		this.defaultAttemptLimit = defaultAttemptLimit;
 	}
 
+	public Scanner getScanner() {
+		return sc;
+	}
+
 	public void close() {
 		sc.close();
 	}
