@@ -34,11 +34,6 @@ public final class KeyboardScanner {
 		sc.useLocale(locale);
 	}
 
-	@Deprecated
-	public KeyboardScanner(InputStream source) {
-		this();
-	}
-
 	public void useLocale(Locale locale) {
 		sc.useLocale(locale);
 	}
