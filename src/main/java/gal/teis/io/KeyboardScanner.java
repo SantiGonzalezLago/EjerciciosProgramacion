@@ -1,6 +1,7 @@
 package gal.teis.io;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
@@ -215,7 +216,30 @@ public final class KeyboardScanner {
 			} catch (StringIndexOutOfBoundsException ex) {
 				error = true;
 				attempts++;
-				cleanBuffer();
+				sc.nextLine();
+				if (attempts >= attemptLimit)
+					throw ex;
+			}
+		} while (error);
+		return input;
+	}
+
+	public BigInteger nextBigInteger() throws InputMismatchException {
+		return nextBigInteger(defaultAttemptLimit);
+	}
+
+	public BigInteger nextBigInteger(int attemptLimit) {
+		boolean error;
+		int attempts = 0;
+		BigInteger input = null;
+		do {
+			error = false;
+			try {
+				input = sc.nextBigInteger();
+			} catch (InputMismatchException ex) {
+				error = true;
+				attempts++;
+				sc.nextLine();
 				if (attempts >= attemptLimit)
 					throw ex;
 			}
@@ -234,10 +258,11 @@ public final class KeyboardScanner {
 		do {
 			error = false;
 			try {
-				input = new BigDecimal(sc.nextLine());
-			} catch (NumberFormatException ex) {
+				input = sc.nextBigDecimal();
+			} catch (InputMismatchException ex) {
 				error = true;
 				attempts++;
+				sc.nextLine();
 				if (attempts >= attemptLimit)
 					throw ex;
 			}
