@@ -1,5 +1,6 @@
 package gal.teis.io;
 
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.InputMismatchException;
@@ -7,20 +8,20 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public final class KeyboardScanner {
-	private static final int DEFAULT_ATTEMPT_LIMIT = 10;
+	private static final int DEFAULT_ATTEMPT_LIMIT = 1;
 
 	private Scanner sc;
 	private boolean lineInBuffer;
-	private int defaultAttemptLimit;
+	private int attemptLimit;
 
 	public KeyboardScanner() {
 		this(DEFAULT_ATTEMPT_LIMIT);
 	}
 
-	public KeyboardScanner(int defaultAttemptLimit) {
+	public KeyboardScanner(int attemptLimit) {
 		sc = new Scanner(System.in).useLocale(Locale.ENGLISH);
 		lineInBuffer = false;
-		this.defaultAttemptLimit = defaultAttemptLimit;
+		this.attemptLimit = attemptLimit;
 	}
 
 	public KeyboardScanner(Locale locale) {
@@ -28,17 +29,26 @@ public final class KeyboardScanner {
 		sc.useLocale(locale);
 	}
 
-	public KeyboardScanner(int defaultAttemptLimit, Locale locale) {
-		this(defaultAttemptLimit);
+	public KeyboardScanner(int attemptLimit, Locale locale) {
+		this(attemptLimit);
 		sc.useLocale(locale);
+	}
+
+	@Deprecated
+	public KeyboardScanner(InputStream source) {
+		this();
 	}
 
 	public void useLocale(Locale locale) {
 		sc.useLocale(locale);
 	}
 
-	public void setDefaultAttemptLimit(int defaultAttemptLimit) {
-		this.defaultAttemptLimit = defaultAttemptLimit;
+	public void setLocale(Locale locale) {
+		useLocale(locale);
+	}
+
+	public void setAttemptLimit(int attemptLimit) {
+		this.attemptLimit = attemptLimit;
 	}
 
 	public Scanner getScanner() {
@@ -62,10 +72,6 @@ public final class KeyboardScanner {
 	}
 
 	public byte nextByte() throws InputMismatchException {
-		return nextByte(defaultAttemptLimit);
-	}
-
-	public byte nextByte(int attemptLimit) throws InputMismatchException {
 		boolean error;
 		int attempts = 0;
 		byte input = 0;
@@ -86,10 +92,6 @@ public final class KeyboardScanner {
 	}
 
 	public short nextShort() throws InputMismatchException {
-		return nextShort(defaultAttemptLimit);
-	}
-
-	public short nextShort(int attemptLimit) throws InputMismatchException {
 		boolean error;
 		int attempts = 0;
 		short input = 0;
@@ -110,10 +112,6 @@ public final class KeyboardScanner {
 	}
 
 	public int nextInt() throws InputMismatchException {
-		return nextInt(defaultAttemptLimit);
-	}
-
-	public int nextInt(int attemptLimit) throws InputMismatchException {
 		boolean error;
 		int attempts = 0;
 		int input = 0;
@@ -134,10 +132,6 @@ public final class KeyboardScanner {
 	}
 
 	public long nextLong() throws InputMismatchException {
-		return nextLong(defaultAttemptLimit);
-	}
-
-	public long nextLong(int attemptLimit) throws InputMismatchException {
 		boolean error;
 		int attempts = 0;
 		long input = 0;
@@ -158,10 +152,6 @@ public final class KeyboardScanner {
 	}
 
 	public float nextFloat() throws InputMismatchException {
-		return nextFloat(defaultAttemptLimit);
-	}
-
-	public float nextFloat(int attemptLimit) throws InputMismatchException {
 		boolean error;
 		int attempts = 0;
 		float input = 0;
@@ -182,10 +172,6 @@ public final class KeyboardScanner {
 	}
 
 	public double nextDouble() throws InputMismatchException {
-		return nextDouble(defaultAttemptLimit);
-	}
-
-	public double nextDouble(int attemptLimit) throws InputMismatchException {
 		boolean error;
 		int attempts = 0;
 		double input = 0;
@@ -206,10 +192,6 @@ public final class KeyboardScanner {
 	}
 
 	public char nextChar() throws InputMismatchException {
-		return nextChar(defaultAttemptLimit);
-	}
-
-	public char nextChar(int attemptLimit) throws InputMismatchException {
 		boolean error;
 		int attempts = 0;
 		char input = 0;
@@ -228,11 +210,7 @@ public final class KeyboardScanner {
 		return input;
 	}
 
-	public BigInteger nextBigInteger() throws InputMismatchException {
-		return nextBigInteger(defaultAttemptLimit);
-	}
-
-	public BigInteger nextBigInteger(int attemptLimit) {
+	public BigInteger nextBigInteger() {
 		boolean error;
 		int attempts = 0;
 		BigInteger input = null;
@@ -251,11 +229,7 @@ public final class KeyboardScanner {
 		return input;
 	}
 
-	public BigDecimal nextBigDecimal() throws InputMismatchException {
-		return nextBigDecimal(defaultAttemptLimit);
-	}
-
-	public BigDecimal nextBigDecimal(int attemptLimit) {
+	public BigDecimal nextBigDecimal() {
 		boolean error;
 		int attempts = 0;
 		BigDecimal input = null;

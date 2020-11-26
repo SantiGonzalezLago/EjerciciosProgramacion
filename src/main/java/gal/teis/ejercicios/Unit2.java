@@ -9,7 +9,9 @@ import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-@SuppressWarnings({ "resource", "unused" })
+import gal.teis.io.KeyboardScanner;
+
+@SuppressWarnings("unused")
 public class Unit2 {
 
 	public static void start() {
@@ -64,7 +66,7 @@ public class Unit2 {
 
 	private static void fibonacci() {
 		long num1 = 1, num2 = 0, curNum = 0, position = 0;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		boolean error;
 		do {
 			error = false;
@@ -73,7 +75,6 @@ public class Unit2 {
 				position = sc.nextInt();
 			} catch (InputMismatchException ex) {
 				error = true;
-				sc.nextLine();
 			}
 		} while (error);
 		if (position > 92) {
@@ -96,7 +97,7 @@ public class Unit2 {
 	private static void change() {
 		final double PRIZE = 4.65;
 		double payment = 0f, change;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		boolean error;
 		do {
 			error = false;
@@ -105,7 +106,6 @@ public class Unit2 {
 				payment = sc.nextDouble();
 			} catch (InputMismatchException ex) {
 				error = true;
-				sc.nextLine();
 			}
 		} while (error);
 		if (payment < PRIZE) {
@@ -148,7 +148,7 @@ public class Unit2 {
 		String text;
 		StringBuilder cipheredText;
 		int displacement = 0;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduzca el texto a cifrar: ");
 		text = sc.nextLine();
 		boolean error;
@@ -159,7 +159,6 @@ public class Unit2 {
 				displacement = sc.nextInt();
 			} catch (InputMismatchException ex) {
 				error = true;
-				sc.nextLine();
 			}
 		} while (error);
 		cipheredText = new StringBuilder();
@@ -197,7 +196,7 @@ public class Unit2 {
 		BigDecimal amount;
 		String pwd = "1234", pwdAttempt;
 		int menu, lgnMenu;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		do {
 			System.out.println("¿Qué desea hacer?");
 			System.out.println("1. Iniciar sesión");
@@ -206,12 +205,10 @@ public class Unit2 {
 				lgnMenu = sc.nextInt();
 			} catch (InputMismatchException ex) {
 				lgnMenu = 0;
-				sc.nextLine();
 			}
 			switch (lgnMenu) {
 			case 1:
 				System.out.print("Introduzca la contraseña: ");
-				sc.nextLine();
 				pwdAttempt = sc.nextLine();
 				if (pwd.equals(pwdAttempt)) {
 					System.out.println("Acceso concedido");
@@ -226,7 +223,6 @@ public class Unit2 {
 							menu = sc.nextInt();
 						} catch (InputMismatchException ex) {
 							menu = 0;
-							sc.nextLine();
 						}
 						switch (menu) {
 						case 1:
@@ -249,9 +245,6 @@ public class Unit2 {
 							System.out.printf("Tu saldo actual es de %.2f€%n", balance);
 							break;
 						case 4:
-							if (sc.hasNextLine()) {
-								sc.nextLine();
-							}
 							String newPwd, repeatPwd;
 							System.out.print("Introduzca la contraseña actual: ");
 							pwdAttempt = sc.nextLine();
@@ -294,7 +287,7 @@ public class Unit2 {
 
 	private static void rectangle() {
 		int height, width, curHeight, curWidth;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduzca la altura: ");
 		height = sc.nextInt();
 		System.out.print("Introduzca la anchura: ");
@@ -335,7 +328,7 @@ public class Unit2 {
 
 	private static void guessTheNumber() {
 		int number, attempt = 1, guess = -1;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out
 				.println("Se va a generar aleatoriamente un número entre 0 y 100. Tiene 10 intentos para adivinarlo.");
 		number = new Random().nextInt(101);
@@ -357,7 +350,7 @@ public class Unit2 {
 	}
 
 	private static void factorialAndSigmaWhile() {
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		int number, sigma = 0, factorial = 1;
 		System.out.print("Introduzca el valor a calcular: ");
 		number = sc.nextInt();
@@ -397,7 +390,7 @@ public class Unit2 {
 	}
 
 	private static void sigmaNaturalNumbers() {
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduzca el valor a calcular: ");
 		int num = sc.nextInt();
 		long result = calculateSigma(num);
@@ -425,7 +418,7 @@ public class Unit2 {
 	}
 
 	private static void checkPrime() {
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		int number;
 		boolean isPrime = true;
 		System.out.print("Introduzca un número: ");
@@ -447,7 +440,7 @@ public class Unit2 {
 	}
 
 	private static void avgNegativesAndAmountOfZeroes() {
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		float number, sumNegatives = 0;
 		int amountNegatives = 0, amountZeroes = 0;
 		System.out.println("Introduzca 10 números, por favor");
@@ -469,7 +462,7 @@ public class Unit2 {
 	}
 
 	private static void divisors() {
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		int number;
 		System.out.print("Introduzca un número: ");
 		number = sc.nextInt();
@@ -483,7 +476,7 @@ public class Unit2 {
 	}
 
 	private static void factorial() {
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduzca el valor a calcular: ");
 		int num = sc.nextInt();
 		try {
@@ -507,7 +500,7 @@ public class Unit2 {
 
 	private static void showRange() {
 		int minValue, maxValue;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduce el valor mínimo a mostrar: ");
 		minValue = sc.nextInt();
 		System.out.print("Introduce el valor máximo a mostrar: ");
@@ -525,7 +518,7 @@ public class Unit2 {
 
 	private static void showEven() {
 		int maxValue;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduce el valor máximo a mostrar: ");
 		maxValue = sc.nextInt();
 		for (int i = 0; i <= maxValue; i++) {
@@ -540,7 +533,7 @@ public class Unit2 {
 		BigDecimal balance = new BigDecimal(400);
 		BigDecimal amount;
 		int menu;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		do {
 			System.out.println("Elige la operación: ");
 			System.out.println("1. Ingresar");
@@ -550,7 +543,6 @@ public class Unit2 {
 				menu = sc.nextInt();
 			} catch (InputMismatchException ex) {
 				menu = 0;
-				sc.nextLine();
 			}
 			switch (menu) {
 			case 1:
@@ -610,7 +602,7 @@ public class Unit2 {
 
 	private static void numberOfDigits() {
 		int number;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.println("Introduzca un número entre 0 y 99999");
 		number = sc.nextInt();
 		if (number < 0 || number > 99999) {
@@ -622,7 +614,7 @@ public class Unit2 {
 
 	private static void sortNumbers() {
 		int[] numbers = new int[3];
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		for (int i = 0; i < numbers.length; i++) {
 			System.out.print("Introduzca un valor: ");
 			numbers[i] = sc.nextInt();
@@ -638,7 +630,7 @@ public class Unit2 {
 		final String USER = "chanchi";
 		final String PWD = "1234";
 		String user, pwd;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Usuario: ");
 		user = sc.nextLine();
 		System.out.print("Contraseña: ");
@@ -652,7 +644,7 @@ public class Unit2 {
 
 	private static void leapYears() {
 		int year;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduzca un año: ");
 		year = sc.nextInt();
 		if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
@@ -664,7 +656,7 @@ public class Unit2 {
 
 	private static void evenNumber() {
 		long number;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduzca un número entero: ");
 		number = sc.nextLong();
 		if (number % 2 == 0) {
@@ -677,7 +669,7 @@ public class Unit2 {
 
 	private static void weekDay() {
 		int day;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduce el día de la semana (1-7): ");
 		day = sc.nextInt();
 		switch (day) {
@@ -701,7 +693,7 @@ public class Unit2 {
 	private static void vehicles() {
 		String vehicleType;
 
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduzca el tipo de vehículo: ");
 		vehicleType = sc.nextLine();
 
@@ -722,7 +714,7 @@ public class Unit2 {
 	}
 
 	private static void qualification() {
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Nota (0-10): ");
 		double nota = sc.nextDouble();
 		if (nota == 10) {
@@ -762,7 +754,7 @@ public class Unit2 {
 	private static void tooYoung() {
 		int age;
 		String name;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.print("Introduzca su nombre, por favor: ");
 		name = sc.nextLine();
 		System.out.print("Introduzca su edad: ");
@@ -794,7 +786,7 @@ public class Unit2 {
 	}
 
 	private static void qualificationPassFail() {
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		int qualification;
 		System.out.print("Introduce la nota del examen: ");
 		qualification = sc.nextInt();
@@ -807,7 +799,7 @@ public class Unit2 {
 	}
 
 	private static void payIrpf() {
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		double income;
 		System.out.print("Introduzca sus ingresos anuales: ");
 		income = sc.nextDouble();
@@ -819,7 +811,7 @@ public class Unit2 {
 	}
 
 	private static void addTwoNumbers() {
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		int n1, n2;
 		System.out.print("Introduce un número entero: ");
 		n1 = sc.nextInt();

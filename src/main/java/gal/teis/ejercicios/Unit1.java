@@ -1,8 +1,8 @@
 package gal.teis.ejercicios;
 
-import java.util.Scanner;
+import gal.teis.io.KeyboardScanner;
 
-@SuppressWarnings({"resource", "unused"})
+@SuppressWarnings("unused")
 public class Unit1 {
 
 	public static void start() {
@@ -46,15 +46,15 @@ public class Unit1 {
 
 	private static void numberBetweenOneAndTen() {
 		int numero = 0;
-		Scanner teclado = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		boolean numeroEstaEntre0Y10;
 		do {
 			numeroEstaEntre0Y10 = true;
 			System.out.println("Escribe un número entre 0 y 10:");
 			try {
-				numero = teclado.nextInt();
+				numero = sc.nextInt();
 			} catch (Exception e) {
-				teclado.nextLine();
+				sc.nextLine();
 				System.out.println(e);
 				numeroEstaEntre0Y10 = false;
 			}
@@ -74,7 +74,7 @@ public class Unit1 {
 
 	private static void exceptions() {
 		int number;
-		Scanner sc = new Scanner(System.in);
+		KeyboardScanner sc = new KeyboardScanner();
 		System.out.println("introduzca un numero");
 		try {
 			number = sc.nextInt();
