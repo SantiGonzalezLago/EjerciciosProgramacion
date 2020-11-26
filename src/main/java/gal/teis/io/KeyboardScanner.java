@@ -1,6 +1,5 @@
 package gal.teis.io;
 
-import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.InputMismatchException;
