@@ -231,13 +231,13 @@ public class Unit2 {
 						switch (menu) {
 						case 1:
 							System.out.print("Introduzca el valor a introducir: ");
-							amount = new BigDecimal(sc.nextDouble());
+							amount = sc.nextBigDecimal();
 							balance = balance.add(amount);
 							System.out.printf("Tu saldo actual es de %.2f€%n", balance);
 							break;
 						case 2:
 							System.out.print("Introduzca el valor a retirar: ");
-							amount = new BigDecimal(sc.nextDouble());
+							amount = sc.nextBigDecimal();
 							if (amount.compareTo(balance) > 0) {
 								System.out.println("No tienes tanto dinero en la cuenta.");
 							} else {
@@ -555,13 +555,13 @@ public class Unit2 {
 			switch (menu) {
 			case 1:
 				System.out.print("Introduzca el valor a introducir: ");
-				amount = new BigDecimal(sc.nextDouble());
+				amount = sc.nextBigDecimal();
 				balance = balance.add(amount);
 				System.out.printf("Tu saldo actual es de %.2f€%n", balance);
 				break;
 			case 2:
 				System.out.print("Introduzca el valor a retirar: ");
-				amount = new BigDecimal(sc.nextDouble());
+				amount = sc.nextBigDecimal();
 				if (amount.compareTo(balance) > 0) {
 					System.out.println("No tienes tanto dinero en la cuenta.");
 				} else {
