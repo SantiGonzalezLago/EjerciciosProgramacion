@@ -408,7 +408,7 @@ public class Unit2 {
 			return num + calculateSigma(num + 1);
 	}
 
-	private static void staircaise() {
+	private static void staircase() {
 		for (int i = 1; i <= 10; i++) {
 			for (int j = 1; j <= i; j++) {
 				System.out.print(j % 10);
