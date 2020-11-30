@@ -2,6 +2,8 @@ package gal.teis.ejercicios;
 
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import gal.teis.io.KeyboardScanner;
 
 @SuppressWarnings("unused")
@@ -30,16 +32,17 @@ public class Unit2Arrays {
 	//Práctica 2
 	private static void calculateDniLetter() {
 		final char[] LETTERS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
-		KeyboardScanner sc = new KeyboardScanner();
-		System.out.print("Introduzca su DNI (sin la letra, utilice solo dígitos): ");
-		int dni = sc.nextInt();
+		int dni;
+		try {
+			dni = Integer.valueOf(JOptionPane.showInputDialog(null, "Introduzca su DNI (sin la letra, utilice solo dígitos)", "DNI", JOptionPane.QUESTION_MESSAGE));
+		} catch (NumberFormatException ex) {
+			dni = -1;
+		}
 		if (dni >= 0 && dni <= 99999999) {
 			char letter = LETTERS[dni%23];
-			System.out.printf("%08d-%c%n", dni, letter);
+			JOptionPane.showMessageDialog(null, String.format("%08d-%c", dni, letter), "Resultado", JOptionPane.INFORMATION_MESSAGE);
 		} else {
-			System.out.println("El DNI es erróneo.");
+			JOptionPane.showMessageDialog(null, "El DNI es erróneo", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	
-
 }

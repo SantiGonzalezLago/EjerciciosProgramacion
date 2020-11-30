@@ -44,7 +44,7 @@ public class Unit2ControlStructures {
 //		sigmaNaturalNumbers();
 //		avgNegativesAndAmountOfZeroes();
 //		checkPrime();
-//		staircaise();
+		staircase();
 
 //		EJERCICIOS while
 //		tens();
@@ -59,7 +59,7 @@ public class Unit2ControlStructures {
 //		atm2();
 
 //		PRÁCTICAS
-		caesarCipher();
+//		caesarCipher();
 //		change();
 //		fibonacci();
 	}
