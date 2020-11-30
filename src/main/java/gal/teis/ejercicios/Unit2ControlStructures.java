@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import gal.teis.io.KeyboardScanner;
 
 @SuppressWarnings("unused")
-public class Unit2 {
+public class Unit2ControlStructures {
 
 	public static void start() {
 //		convertHours(1000);
