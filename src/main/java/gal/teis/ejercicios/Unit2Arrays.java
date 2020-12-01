@@ -26,7 +26,7 @@ public class Unit2Arrays {
 		boolean firstTime = true;
 		do {
 			if (firstTime) {
-				System.out.print("Adivine el mes secreto. Introduzca el nombre del mes o como número: ");
+				System.out.print("Adivine el mes secreto. Introduzca el nombre o número del mes: ");
 				firstTime = false;
 			} else {
 				System.out.printf("No es %s. Intente adivinarlo introduciendo otro mes: ", month);
