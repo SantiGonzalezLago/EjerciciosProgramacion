@@ -134,7 +134,7 @@ public class Unit2ControlStructures {
 
 	private static double deductBillsOrCoins(double change, double value, boolean coin) {
 		int counter = 0;
-		while (change > value) {
+		while (change >= value) {
 			change -= value;
 			counter++;
 		}
