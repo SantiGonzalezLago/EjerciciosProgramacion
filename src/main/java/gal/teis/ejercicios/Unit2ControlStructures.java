@@ -356,15 +356,16 @@ public class Unit2ControlStructures {
 		number = sc.nextInt();
 		if (number < 0 || number > 10) {
 			System.out.println("El número tiene que estar entre 0 y 10");
+		} else {
+			int i = 1;
+			while (i <= number) {
+				sigma += i;
+				factorial *= i;
+				i++;
+			}
+			System.out.println("\u03A3" + number + " = " + sigma);
+			System.out.println(number + "! = " + factorial);
 		}
-		int i = 1;
-		while (i <= number) {
-			sigma += i;
-			factorial *= i;
-			i++;
-		}
-		System.out.println("\u03A3" + number + " = " + sigma);
-		System.out.println(number + "! = " + factorial);
 	}
 
 	private static void tenToOne() {
