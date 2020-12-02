@@ -54,8 +54,8 @@ public class Unit2ControlStructures {
 //		guessTheNumber();
 
 //		EJERCICIOS do while
-//		multiplicationTables();
-		rectangle();
+		multiplicationTables();
+//		rectangle();
 //		atm2();
 
 //		PRÁCTICAS
@@ -314,9 +314,9 @@ public class Unit2ControlStructures {
 			System.out.println("Tabla del " + table);
 			int number = 0;
 			do {
-				number++;
 				System.out.println(table + " x " + number + " = " + table * number);
-			} while (number < 10);
+				number++;
+			} while (number <= 10);
 			System.out.println();
 			table++;
 		} while (table <= 9);
