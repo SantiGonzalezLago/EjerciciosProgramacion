@@ -44,7 +44,7 @@ public class Unit2ControlStructures {
 //		sigmaNaturalNumbers();
 //		avgNegativesAndAmountOfZeroes();
 //		checkPrime();
-		staircase();
+//		staircase();
 
 //		EJERCICIOS while
 //		tens();
@@ -55,7 +55,7 @@ public class Unit2ControlStructures {
 
 //		EJERCICIOS do while
 //		multiplicationTables();
-//		rectangle();
+		rectangle();
 //		atm2();
 
 //		PRÁCTICAS
@@ -298,14 +298,10 @@ public class Unit2ControlStructures {
 			curWidth = 0;
 			do {
 				curWidth++;
-				if (curHeight == 1 || curHeight == height) {
+				if (curHeight == 1 || curHeight == height || curWidth == 1 || curWidth == width) {
 					System.out.print('*');
 				} else {
-					if (curWidth == 1 || curWidth == width) {
-						System.out.print('*');
-					} else {
-						System.out.print(' ');
-					}
+					System.out.print(' ');
 				}
 			} while (curWidth < width);
 			System.out.println();
