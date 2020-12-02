@@ -18,16 +18,13 @@ public class Unit2Arrays {
 	private static void guessMonth() {
 		final String[] MONTHS = { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
 				"septiembre", "octubre", "noviembre", "diciembre" };
-		int secretMonthNum = new Random().nextInt(MONTHS.length);
-		String secretMonth = MONTHS[secretMonthNum];
+		String secretMonth = MONTHS[new Random().nextInt(MONTHS.length)];
 		KeyboardScanner sc = new KeyboardScanner();
-		String month = "";
+		String month = null;
 		int monthNum;
-		boolean firstTime = true;
 		do {
-			if (firstTime) {
+			if (month == null) {
 				System.out.print("Adivine el mes secreto. Introduzca el nombre o número del mes: ");
-				firstTime = false;
 			} else {
 				System.out.printf("No es %s. Intente adivinarlo introduciendo otro mes: ", month);
 			}
